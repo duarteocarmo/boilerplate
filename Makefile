@@ -46,7 +46,7 @@ check:
 	isort --check . 
 	black --check .
 
-## Run dreambox api
+## Run api
 api:
 	python -m uvicorn src.api.main:app --reload
 
