@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "boilerplate"
+version = "23.2.17"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["fastapi>=0.88.0", "uvicorn>=0.20.0"]
+
+[project.optional-dependencies]
+dev = [
+  "black>=22.10.0",
+  "isort>=5.10.1",
+  "pip-tools>=6.10.0",
+  "pytest>=7.2.0",
+  "pytest-cov>=4.0.0",
+  "ruff>=0.0.219",
+  "watchdog>=2.1.9",
+  "httpx>=0.23.2",
+
+]
+
+[tool.ruff]
+line-length = 127
+ignore = ["E501"]
+
+[tool.isort]
+profile = "black"
+line_length = 79
+skip = [".env/", "venv", ".venv"]
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.run]
+branch = true
+relative_files = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 80
+
+[tool.black]
+line-length = 79
+extend-exclude = '''
+/(
+  | .env
+  | .venv
+  | venv
+  | notebooks
+)/
+'''
