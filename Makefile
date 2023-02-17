@@ -46,17 +46,10 @@ check:
 	isort --check . 
 	black --check .
 
-## Run dreambox web app
-streamlit:
-	streamlit run src/web/Home.py
-
 ## Run dreambox api
 api:
 	python -m uvicorn src.api.main:app --reload
 
-## Compare prod vs local completions
-compare:
-	python tests/comparison.py
 
 #################################################################################
 # Self Documenting Commands                                                     #
