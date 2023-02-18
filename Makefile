@@ -13,8 +13,8 @@ install-dev: install
 
 ## Build dependencies
 build: 
-	pip-compile --resolver=backtracking --output-file=requirements.txt pyproject.toml
-	pip-compile --resolver=backtracking --extra=dev --output-file=requirements-dev.txt pyproject.toml
+	pip-compile --generate-hashes --resolver=backtracking --output-file=requirements.txt pyproject.toml
+	pip-compile --generate-hashes --resolver=backtracking --extra=dev --output-file=requirements-dev.txt pyproject.toml
 
 ## Delete all temporary files
 clean:
