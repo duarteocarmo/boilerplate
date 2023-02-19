@@ -8,7 +8,7 @@ name = "boilerplate"
 version = "23.2.17"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["fastapi>=0.88.0", "uvicorn>=0.20.0"]
+dependencies = ["fastapi>=0.88.0", "uvicorn>=0.20.0", "pandas"]
 
 [project.optional-dependencies]
 dev = [

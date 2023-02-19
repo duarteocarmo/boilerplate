@@ -5,16 +5,10 @@ install:
 	@echo ">> Installing dependencies"
 	python -m pip install --upgrade pip
 	python -m pip install -e .
-	python3 -m pip install -r requirements.txt
 
 ## Install for development 
 install-dev: install
-	python3 -m pip install -r requirements-dev.txt
-
-## Build dependencies
-build: 
-	pip-compile --generate-hashes --resolver=backtracking --output-file=requirements.txt pyproject.toml
-	pip-compile --generate-hashes --resolver=backtracking --extra=dev --output-file=requirements-dev.txt pyproject.toml
+	python -m pip install -e ".[dev]"
 
 ## Delete all temporary files
 clean:
