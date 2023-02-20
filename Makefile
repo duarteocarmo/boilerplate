@@ -36,7 +36,7 @@ test:
 
 ## Run checks (ruff + test)
 check:
-	ruff .
+	ruff check .
 	black --check .
 
 ## Run api
