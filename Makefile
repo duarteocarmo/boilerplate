@@ -10,17 +10,6 @@ install:
 install-dev: install
 	python -m pip install -e ".[dev]"
 
-## Build dependencies for production
-build-prod: 
-	pip-compile --resolver=backtracking --generate-hashes --output-file=requirements.txt pyproject.toml
-	pip-compile --resolver=backtracking --generate-hashes --extra=dev --output-file=requirements-dev.txt pyproject.toml
-
-## Install dependencies in production
-install-prod: 
-	python -m pip install --upgrade pip
-	python -m pip install -e .
-	python -m pip install -r requirements.txt
-
 ## Delete all temporary files
 clean:
 	rm -rf .ipynb_checkpoints
@@ -38,7 +27,7 @@ ruff:
 
 ## Format files using black
 format:
-	isort .
+	ruff . --fix
 	black .
 
 ## Run tests
@@ -48,7 +37,6 @@ test:
 ## Run checks (ruff + test)
 check:
 	ruff .
-	isort --check . 
 	black --check .
 
 ## Run api

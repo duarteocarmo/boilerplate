@@ -13,8 +13,6 @@ dependencies = ["fastapi>=0.88.0", "uvicorn>=0.20.0", "pandas"]
 [project.optional-dependencies]
 dev = [
   "black>=22.10.0",
-  "pip-tools==6.12.2",
-  "isort>=5.10.1",
   "pytest>=7.2.0",
   "pytest-cov>=4.0.0",
   "ruff>=0.0.219",
@@ -23,13 +21,11 @@ dev = [
 ]
 
 [tool.ruff]
-line-length = 127
+line-length = 79
 ignore = ["E501"]
-
-[tool.isort]
-profile = "black"
-line_length = 79
-skip = [".env/", "venv", ".venv"]
+fixable = ["I"]
+exclude = [".env", ".venv", "venv", "notebooks"]
+show-source = true
 
 [tool.coverage.paths]
 source = ["src"]
