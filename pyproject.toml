@@ -21,8 +21,9 @@ dev = [
 ]
 
 [tool.ruff]
-line-length = 79
 ignore = ["E501"]
+select = ["E", "F", "I", "W"]
+line-length = 79
 fixable = ["I"]
 exclude = [".env", ".venv", "venv", "notebooks"]
 show-source = true
