@@ -1,4 +1,6 @@
-# Predictor: An example project
+# pyplaylist
+
+A tool for generating music playlists.
 
 ## Development
 
