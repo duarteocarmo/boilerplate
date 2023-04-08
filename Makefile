@@ -43,6 +43,11 @@ check:
 api:
 	python -m uvicorn src.api.main:app --reload
 
+## Update dependencies
+lock-dependencies:
+	pip-compile --generate-hashes --output-file=requirements.txt pyproject.toml
+	pip-compile --generate-hashes --extra=dev --output-file=requirements-dev.txt pyproject.toml
+
 
 #################################################################################
 # Self Documenting Commands                                                     #
