@@ -27,8 +27,8 @@ ruff:
 
 ## Format files using black
 format:
-	ruff . --fix
 	black .
+	ruff . --fix
 
 ## Run tests
 test:
