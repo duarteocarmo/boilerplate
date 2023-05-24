@@ -1,7 +1,8 @@
 import pkg_resources
-from boilerplate.common.main import hello_world
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
+
+from boilerplate.common.main import hello_world
 
 app = FastAPI(
     title="Boilerplate API",
