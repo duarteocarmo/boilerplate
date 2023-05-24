@@ -1,5 +1,5 @@
 import pkg_resources
-from boilerplate.main import hello_world
+from boilerplate.common.main import hello_world
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 

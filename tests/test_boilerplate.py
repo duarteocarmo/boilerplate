@@ -1,4 +1,4 @@
-from boilerplate.main import hello_world
+from boilerplate.common.main import hello_world
 
 
 class TestBoilerplate:
