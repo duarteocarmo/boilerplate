@@ -47,8 +47,8 @@ api:
 build:
 	python -m pip install --upgrade pip
 	python -m pip install pip-tools
-	pip-compile --resolver=backtracking --output-file=requirements.txt pyproject.toml
-	pip-compile --resolver=backtracking --output-file=requirements-dev.txt pyproject.toml
+	pip-compile --output-file=requirements.txt pyproject.toml
+	pip-compile --extra=dev --output-file=requirements-dev.txt pyproject.toml
 
 ## Build the docker image
 docker:
