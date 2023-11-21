@@ -3,52 +3,52 @@
 ## Install for production
 install:
 	@echo ">> Installing dependencies"
-	python -m pip install --upgrade pip
-	python -m pip install -e .
+	@python -m pip install --upgrade pip
+	@python -m pip install -e .
 
 ## Install for development 
 install-dev: install
-	python -m pip install -e ".[dev]"
+	@python -m pip install -e ".[dev]"
 
 ## Delete all temporary files
 clean:
-	rm -rf .ipynb_checkpoints
-	rm -rf **/.ipynb_checkpoints
-	rm -rf .pytest_cache
-	rm -rf **/.pytest_cache
-	rm -rf __pycache__
-	rm -rf **/__pycache__
-	rm -rf build
-	rm -rf dist
+	@rm -rf .ipynb_checkpoints
+	@rm -rf **/.ipynb_checkpoints
+	@rm -rf .pytest_cache
+	@rm -rf **/.pytest_cache
+	@rm -rf __pycache__
+	@rm -rf **/__pycache__
+	@rm -rf build
+	@rm -rf dist
 
 ## Lint using ruff
 ruff:
-	ruff .
+	@ruff .
 
 ## Format files using black
 format:
-	ruff . --fix
-	black .
+	@ruff . --fix
+	@ruff format .
 
 ## Run tests
 test:
-	pytest --cov=src --cov-report xml --log-level=WARNING --disable-pytest-warnings
+	@pytest --cov=src --cov-report xml --log-level=WARNING --disable-pytest-warnings
 
 ## Run checks (ruff + test)
 check:
-	ruff check .
-	black --check .
+	@ruff check .
+	@ruff format --check .
 
 ## Run api
 api:
-	python -m uvicorn src.boilerplate.api.main:app --reload
+	@python -m uvicorn src.boilerplate.api.main:app --reload
 
 ## Build using pip-tools
 build:
-	python -m pip install --upgrade pip
-	python -m pip install pip-tools
-	pip-compile --output-file=requirements.txt pyproject.toml
-	pip-compile --extra=dev --output-file=requirements-dev.txt pyproject.toml
+	@python -m pip install --upgrade pip
+	@python -m pip install --upgrade pip-tools
+	@pip-compile --output-file=requirements.txt pyproject.toml
+	@pip-compile --extra=dev --output-file=requirements-dev.txt pyproject.toml
 
 ## Build the docker image
 docker:
