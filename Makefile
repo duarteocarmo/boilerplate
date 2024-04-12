@@ -3,8 +3,9 @@
 ## Install for production
 install:
 	@echo ">> Installing dependencies"
-	@python -m pip install --upgrade pip
-	@python -m pip install -e .
+	@python -m pip install uv
+	@python -m uv pip install --upgrade pip
+	@python -m uv pip install -e .
 
 ## Install for development 
 install-dev: install
@@ -45,10 +46,11 @@ api:
 
 ## Build using pip-tools
 build:
-	@python -m pip install --upgrade pip
-	@python -m pip install --upgrade pip-tools
-	@pip-compile --output-file=requirements.txt pyproject.toml
-	@pip-compile --extra=dev --output-file=requirements-dev.txt pyproject.toml
+	@python -m pip install --upgrade uv
+	@python -m uv pip install --upgrade pip
+	@python -m uv pip install --upgrade pip-tools
+	@uv pip compile --output-file=requirements.txt pyproject.toml
+	@uv pip compile --extra=dev --output-file=requirements-dev.txt pyproject.toml
 
 ## Build the docker image
 docker:
