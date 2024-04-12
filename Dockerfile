@@ -4,10 +4,11 @@ COPY requirements.txt pyproject.toml ./
 COPY Makefile README.md  ./
 COPY src/ src/
 
-RUN python -m pip install --upgrade pip && \ 
-	python -m pip install -r requirements.txt --no-cache-dir && \
-	python -m pip install . --no-cache-dir 
+ENV VIRTUAL_ENV /usr/local/
 
+RUN python -m pip install --upgrade uv pip && \ 
+	uv pip install -r requirements.txt --no-cache-dir && \
+	uv pip install . --no-cache-dir 
 
 WORKDIR /
 
