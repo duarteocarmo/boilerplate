@@ -1,0 +1,30 @@
+[project]
+name = "{{cookiecutter.project_slug}}"
+version = "{{cookiecutter.project_version}}"
+description = "{{cookiecutter.project_description}}"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["fastapi", "uvicorn"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "ruff", "watchdog", "httpx"]
+
+[tool.ruff]
+exclude = [".env", ".venv", "venv", "notebooks"]
+line-length = 79
+
+[tool.ruff.lint]
+ignore = ["E501"]
+select = ["E", "F", "I", "W"]
+fixable = ["I"]
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.run]
+branch = true
+relative_files = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 80

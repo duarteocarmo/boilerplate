@@ -1,21 +1,21 @@
-# Predictor: An example project
+# Duarte's boilerplate
 
-## Development
+This is a [cookiecutter](https://github.com/cookiecutter/cookiecutter) template I use to kickstart python projects.
 
-1. Make sure you are running in a virtual environment (e.g., `python3 -m venv .env`)
-2. Activate it (e.g. `source .env/bin/activate`)
+'Cause writing boilerplate is boring.
 
-```shell
-(.env) $ make install-dev
-```
+## Installation
 
-3. Run the tests
+Make sure you have cookiecutter installed:
 
 ```shell
-(.env) $ make test
+$ pipx install cookiecutter
 ```
 
-4. For more help:
+Then create your project:
+
 ```shell
-(.env) $ make help
+$ pipx run cookiecutter gh:duarteocarmo/boilerplate
 ```
+
+Enjoy.
