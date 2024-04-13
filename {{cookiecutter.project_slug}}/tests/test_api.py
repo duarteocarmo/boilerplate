@@ -1,5 +1,5 @@
-from {{cookiecutter.project_slug}}.api.main import app
 from fastapi.testclient import TestClient
+from {{cookiecutter.project_slug}}.api.main import app
 
 client = TestClient(app)
 
