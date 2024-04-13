@@ -1,6 +1,6 @@
 # Duarte's boilerplate
 
-This is a [cookiecutter](https://github.com/cookiecutter/cookiecutter) template I use to kickstart python projects.
+This is a [cookiecutter 🍪](https://github.com/cookiecutter/cookiecutter) template I use to kickstart python projects.
 
 'Cause writing boilerplate is boring.
 
