@@ -1,14 +1,14 @@
-.PHONY: install clean lint format 
+.PHONY: install install-dev clean check format test api build docker
 
 ## Install for production
 install:
 	@echo ">> Installing dependencies"
-	@python -m pip install --upgrade pip
-	@python -m pip install -e .
+	@uv pip install --upgrade pip
+	@uv pip install -e .
 
 ## Install for development 
 install-dev: install
-	@python -m pip install -e ".[dev]"
+	@uv pip install -e ".[dev]"
 
 ## Delete all temporary files
 clean:
@@ -21,38 +21,34 @@ clean:
 	@rm -rf build
 	@rm -rf dist
 
-## Lint using ruff
-ruff:
-	@ruff .
+## Run checks (ruff + test)
+check:
+	@python -m ruff check . 
+	@python -m ruff format --check . 
 
 ## Format files using black
 format:
-	@ruff . --fix
-	@ruff format .
+	@python -m ruff check . --fix
+	@python -m ruff format .
 
 ## Run tests
 test:
-	@pytest --cov=src --cov-report xml --log-level=WARNING --disable-pytest-warnings
-
-## Run checks (ruff + test)
-check:
-	@ruff check .
-	@ruff format --check .
+	@python -m pytest --cov=src --cov-report xml --log-level=WARNING --disable-pytest-warnings
 
 ## Run api
 api:
-	@python -m uvicorn src.boilerplate.api.main:app --reload
+	@python -m uvicorn src.{{cookiecutter.project_slug}}.api.main:app --reload
 
 ## Build using pip-tools
 build:
-	@python -m pip install --upgrade pip
-	@python -m pip install --upgrade pip-tools
-	@pip-compile --output-file=requirements.txt pyproject.toml
-	@pip-compile --extra=dev --output-file=requirements-dev.txt pyproject.toml
+	@uv pip install --upgrade pip
+	@uv pip install --upgrade pip-tools
+	@uv pip compile pyproject.toml -o requirements.txt
+	@uv pip compile pyproject.toml --extra dev -o requirements-dev.txt
 
 ## Build the docker image
 docker:
-	docker build -f Dockerfile -t boilerplate .
+	docker build -f Dockerfile -t {{cookiecutter.project_slug}} .
 
 #################################################################################
 # Self Documenting Commands                                                     #

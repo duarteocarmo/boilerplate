@@ -1,4 +1,4 @@
-from boilerplate.api.main import app
+from {{cookiecutter.project_slug}}.api.main import app
 from fastapi.testclient import TestClient
 
 client = TestClient(app)
