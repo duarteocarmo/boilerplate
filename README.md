@@ -9,13 +9,13 @@ This is a [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template 
 Make sure you have cookiecutter installed:
 
 ```shell
-$ pipx install cookiecutter
+pipx install cookiecutter
 ```
 
 Then create your project:
 
 ```shell
-$ pipx run cookiecutter gh:duarteocarmo/boilerplate
+pipx run cookiecutter gh:duarteocarmo/boilerplate
 ```
 
 Enjoy.
